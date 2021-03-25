@@ -47,27 +47,27 @@
         <h3 style="margin-top: 5px;">March 25, 2021 at 11:51AM</h3>
         <hr>
          
-        <p> I wanted a blogging platform that I could quickly publish new content too without much hassle. I also wanted it to be secure and on my own rules. So I did what I always do, barely look for something that already exists and then decide to make my own. I am going to make the rest of this post a developer log about the creation of the platform, I hope you enjoy!
-The idea
-The main idea of the blog is to be quick, easy, and secure to add a new post. The way I am planning to currently do this is by using email. You will email a post in markdown format to a specific email. This will then be converted to HTML and added to the site.
-How it's gonna work
-When you send an email to the specific email address it is detected using IFTTT webhooks and Gmail integration. This webhook then sends the body, subject, date, and email to the Quill API. The API will then take that data and form it into a blog post. It will then clone the site, update the HTML for the blog and then commit and push its changes.
-Day 1 - Overview
-Day 1 was planning day. I tried a bunch of stuff out to see what will be the best way to handle submitting new posts to the blog.
-Choosing the Stack
-I originally tried to write the API with node.js and express however my knowledge of PostgreSQL is extremely limited and the node.js integration is quite confusing. This is why I decided to go with Django as I am much more familiar with Django and Sqlite3. My choice of Django also lets me easily make templates for the HTML that in the end will be uploaded to the site.
-Day 2 - Overview
-The python site is now up and running mostly. I had a lot of success getting the email to be received by the API and double-checked based on the API Key provided. Currently what will happen is that when a post is submitted it is checked to make sure it has the right API key attached, if it does the blog post will be submitted, if it does not the post will be rejected.
-Running git
-A big part of the site is the ability to upload directly to Github from the API so the website can be updated after you submit a new post. I ran into a lot of issues using GitPython, for some reason my files were only sometimes being committed, and when they were, they were usually blank. This is why I decided to go with the current solution of running git through a Python Subprocess. This allows me to use git basically in a command-line environment where I do not have to worry about any libraries. This didn't solve my problem completely but now commits are actually being committed, however files are still bank.
-Day 3 - Overview
-Today I took a break and just had some fun doing other things and working on other projects. Always remember to take breaks!
-Day 4 - Overview
-So, it turns out that you need to use <code>file.close()</code>, if you don't files won't update on the file system. Once I implemented this across the code everything started to work. This tiny one like change killed a lot of the project until I found out about it. This is also probably the reason that GitPython was not working correctly, but it's too late to switch back so I am going to continue rolling with my current setup.
-Day 5 - Overview
-Day 5 was just some cleanup of the code. I switched all of my git code back over to GitPython because it is a lot cleaner than running subprocees. I also added a refresh API so you can refresh your blog by making a post request which includes your key.
-What next?
-Quill is just getting started. I am hoping to continue working on it, with bug fixes and new features. The final goal for Quill is to turn it into a bigger blogging service that people can easily spin up their copies of using a robust API and app. However, this is super far down the road and not something I have time to do right now. </p>
+        <p> <p>I wanted a blogging platform that I could quickly publish new content too without much hassle. I also wanted it to be secure and on my own rules. So I did what I always do, barely look for something that already exists and then decide to make my own. I am going to make the rest of this post a developer log about the creation of the platform, I hope you enjoy!</p>
+<h2>The idea</h2>
+<p>The main idea of the blog is to be quick, easy, and secure to add a new post. The way I am planning to currently do this is by using email. You will email a post in markdown format to a specific email. This will then be converted to HTML and added to the site.</p>
+<h2>How it's gonna work</h2>
+<p>When you send an email to the specific email address it is detected using IFTTT webhooks and Gmail integration. This webhook then sends the body, subject, date, and email to the Quill API. The API will then take that data and form it into a blog post. It will then clone the site, update the HTML for the blog and then commit and push its changes.</p>
+<h1>Day 1 - Overview</h1>
+<p>Day 1 was planning day. I tried a bunch of stuff out to see what will be the best way to handle submitting new posts to the blog.</p>
+<h2>Choosing the Stack</h2>
+<p>I originally tried to write the API with node.js and express however my knowledge of PostgreSQL is extremely limited and the node.js integration is quite confusing. This is why I decided to go with Django as I am much more familiar with Django and Sqlite3. My choice of Django also lets me easily make templates for the HTML that in the end will be uploaded to the site.</p>
+<h1>Day 2 - Overview</h1>
+<p>The python site is now up and running mostly. I had a lot of success getting the email to be received by the API and double-checked based on the API Key provided. Currently what will happen is that when a post is submitted it is checked to make sure it has the right API key attached, if it does the blog post will be submitted, if it does not the post will be rejected.</p>
+<h3>Running git</h3>
+<p>A big part of the site is the ability to upload directly to Github from the API so the website can be updated after you submit a new post. I ran into a lot of issues using GitPython, for some reason my files were only sometimes being committed, and when they were, they were usually blank. This is why I decided to go with the current solution of running git through a Python Subprocess. This allows me to use git basically in a command-line environment where I do not have to worry about any libraries. This didn't solve my problem completely but now commits are actually being committed, however files are still bank.</p>
+<h1>Day 3 - Overview</h1>
+<p>Today I took a break and just had some fun doing other things and working on other projects. Always remember to take breaks!</p>
+<h1>Day 4 - Overview</h1>
+<p>So, it turns out that you need to use file.close(), if you don't files won't update on the file system. Once I implemented this across the code everything started to work. This tiny one like change killed a lot of the project until I found out about it. This is also probably the reason that GitPython was not working correctly, but it's too late to switch back so I am going to continue rolling with my current setup.</p>
+<h1>Day 5 - Overview</h1>
+<p>Day 5 was just some cleanup of the code. I switched all of my git code back over to GitPython because it is a lot cleaner than running subprocees. I also added a refresh API so you can refresh your blog by making a post request which includes your key.</p>
+<h1>What next?</h1>
+<p>Quill is just getting started. I am hoping to continue working on it, with bug fixes and new features. The final goal for Quill is to turn it into a bigger blogging service that people can easily spin up their copies of using a robust API and app. However, this is super far down the road and not something I have time to do right now.</p> </p>
          
     </body>
 </html>
