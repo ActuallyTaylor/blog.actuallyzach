@@ -1,0 +1,65 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    <title>Zachary Lineman’s Quill Blog - Integrating Obsidian into my blog</title>
+    <link rel="icon" href="/static/assets/icon.png" />
+    <meta name="description" content="Zachary Lineman’s blog made with quill." />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <style>
+        .textButton {
+        background-color: var(--button-background);
+        border-radius: 7px;
+        padding: 5px;
+        text-decoration: none;
+        margin: 5px;
+        justify-content: center;
+        text-align: center;
+ 
+    }
+    </style>
+</head>
+    <body id="body">
+                     <div>
+            <a class="textButton" href="https://actuallyzach.com">
+                🏡 Go Home 
+            </a>
+            <a class="textButton" href="https://github.com/ActuallyZach">
+                My GitHub 
+            </a>
+            <a class="textButton" href="https://twitter.com/LinemanZachary">
+                My Twitter
+            </a>
+            <a class="textButton" href="https://discord.gg/jVRPXza">
+                My Discord
+            </a>
+            <a class="textButton" href="mailto:zachary.lineman@gmail.com">
+                Email Me
+            </a>
+            </div>
+            <hr> 
+        <a href="../">← Go Back</a>
+        <h1 style="margin-bottom: 5px;">Integrating Obsidian into my blog</h1>
+        <h3 style="margin-top: 5px;"> May 25th 2021, 12:12 PM (UTC)</h3>
+        <hr>
+         
+        <p> <h1>Integrating Obsidian into my blog</h1>
+<h3>May 14th 2021, 11:20 AM</h3>
+<h2>Finding Obsidian</h2>
+<p>This week, at work I was listening to the <a href="https://www.relay.fm/connected/344">latest episode of connected</a>, and I heard <a href="https://twitter.com/viticci">Federico Viticci</a> talking about <a href="https://obsidian.md">Obsidian</a>. The thing that intrigued me the most about it was the ability to write custom plugins. I love being able to make little changes to the services that I use, so this really sparked my interest.</p>
+<h3>Finding my idea</h3>
+<p>I needed an idea to get into Obsidian, so I decided I would integrate it into <a href="https://blog.actuallyzach.com/posts/88">my blogging platform</a>. At first, I thought I could directly integrate it by just editing Quill to support reading from Markdown files, but I decided against that. Mostly because that would require me to rethink a big chunk of how it works. After some thinking, I decided it would be best if I created a custom plugin that allows me to upload my current Obsidian note right onto the blog.</p>
+<h2>Development</h2>
+<p>I spent most of the morning looking at the <a href="https://github.com/obsidianmd/obsidian-sample-plugin">sample project for Obsidian Plugins</a>. This is a perfect example of what a sample project should be. It shows off what seems to be every feature of the Obsidian API that someone jumping into making plugins needs. </p>
+<p>After I got the sample project downloaded and running using NPM I started developing. Since my idea is super simple it was actually fairly easy to implement, the hardest part was dealing with <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">CORS</a>, but once I figured out I can just place mode: "no-cors" into my fetch call everything was fixed. Once the Obsidian plugin was written I spent some time tweaking Quill, fixing bugs that popped up while doing this much work with it.</p>
+<h3>How does the plugin work?</h3>
+<p>The plugin takes the current file's text and then parses it to extract the title and the date. Once these are extracted a form is constructed and then sent as a POST request to the Quill API. Then, Quill does its magic and the post is uploaded. It is not much different from when I would just email Quill, but it does remove the need for a Zapier integration and allow me to publish right from my text editor.</p>
+<h2>Where Obsidian sits now</h2>
+<p>I so far i'm really liking Obsidian. I love the graph view, even though mine is not that impressive right now. It just really pleases me to see all of my notes connected in one giant graph. Other than that I am really liking the customizability and mod-ability of the entire platform. I do wish NPM packages worked better and there was more documentation on what parts of JavaScript just will not work. But besides that being able to just build features into the editor is exactly what I want. It is going to be awesome, and I can't wait to keep diving into it more.</p> </p>
+         
+    </body>
+</html>
